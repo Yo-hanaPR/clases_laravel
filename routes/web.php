@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::resources([
+    'autores'=> App\Http\Controllers\autoresController::class,
+    'tiendas'=> App\Http\Controllers\tiendasController::class,
+    'libros'=> App\Http\Controllers\librosController::class,
+    'clientes'=> App\Http\Controllers\clientesController::class
+]);
 Route::get('entrar', function(){
     return "Autorizado";
 })->middleware('checkage');
@@ -19,11 +25,7 @@ Route::middleware('checkage')->group(function(){
     });
     
     //Route::resource('autores',App\Http\Controllers\autoresController::class);
-    Route::resources([
-        'autores'=> App\Http\Controllers\autoresController::class,
-        'tiendas'=> App\Http\Controllers\tiendasController::class,
-        'libros'=> App\Http\Controllers\librosController::class
-    ]);
+    
     
     Route::view('/welcome', 'welcome', ['name'=> "Yohanna"]);
 });
