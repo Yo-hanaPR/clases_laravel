@@ -12,6 +12,45 @@ class autoresController extends Controller
     public function index()
     {
         //
+        $autores= [
+            ['name'=> 'Jose', 'apellido'=>'padrino'],
+            ['name'=> 'Yohanna', 'apellido'=>'padrino'],
+            ['name'=> 'Yanluis', 'apellido'=>'laya']
+        ];
+
+        $products= [
+            [
+                'nombre'=> "Teléfono", 
+                'precio'=>'460', 
+                'specs'=> [' color'=>'rojo', 'tamaño'=>'grande', 'camara'=>'12MP']
+            ],
+
+            [
+                'nombre'=> "Teléfono", 
+                'precio'=>'460', 
+                'specs'=> [' color'=>'rojo', 'tamaño'=>'grande', 'camara'=>'12MP']
+            ],
+            [
+                'nombre'=> "Teléfono", 
+                'precio'=>'460', 
+                'specs'=> [' color'=>'rojo', 'tamaño'=>'grande', 'camara'=>'12MP']
+            ]
+            ,
+            [
+                'nombre'=> "Teléfono", 
+                'precio'=>'460', 
+                'specs'=> [' color'=>'rojo', 'tamaño'=>'grande', 'camara'=>'12MP']
+            ],
+            [
+                'nombre'=> "Teléfono", 
+                'precio'=>'460', 
+                'specs'=> [' color'=>'rojo', 'tamaño'=>'grande', 'camara'=>'12MP']
+            ]
+        ];
+
+
+        $condicion= true; /**Valor booleano para ver los condicionales de blade*/
+        return view("lista_autores", compact('autores','products', 'condicion') );
     }
 
     /**

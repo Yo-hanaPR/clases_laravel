@@ -27,5 +27,7 @@ Route::middleware('checkage')->group(function(){
     //Route::resource('autores',App\Http\Controllers\autoresController::class);
     
     
-    Route::view('/welcome', 'welcome', ['name'=> "Yohanna"]);
 });
+Route::view('/welcome', 'welcome');
+Route::get("/suma", [App\Http\Controllers\CarrosController::class, 'suma']);
+Route::get('/unique',[App\Http\Controllers\UniqueController::class]);

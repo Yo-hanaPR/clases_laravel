@@ -1,0 +1,2 @@
+{{$asunto}}
+{{$mensaje}}
