@@ -12,7 +12,15 @@ class clientesController extends Controller
     public function index(    )
     {
         //
-        return view('clientes');
+        
+        $clientes= [
+            ['name'=> 'Jose', 'apellido'=>'padrino', 'activo'=>true],
+            ['name'=> 'Yohanna', 'apellido'=>'padrino','activo'=>false],
+            ['name'=> 'Yanluis', 'apellido'=>'laya', 'activo'=>true],
+            ['name'=> 'Fulano', 'apellido'=>'detal', 'activo'=>true]
+        ];
+        $clientes_total=count($clientes); //dd($clientes_total);
+        return view('clientes', compact('clientes' , 'clientes_total')) ;
     }
 
     /**
