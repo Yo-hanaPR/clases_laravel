@@ -1,0 +1,2 @@
+Para crear los tipos de campos en las migraciones tienes muchas opciones en la documentacion oficial. 
+Aquí encontrarás como usar cada campo: https://laravel.com/docs/11.x/migrations#creating-columns

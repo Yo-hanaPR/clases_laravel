@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\autores;
 
 class autoresController extends Controller
 {
@@ -12,6 +13,7 @@ class autoresController extends Controller
     public function index()
     {
         //
+        
         $autores= [
             ['name'=> 'Jose', 'apellido'=>'padrino'],
             ['name'=> 'Yohanna', 'apellido'=>'padrino'],
