@@ -15,7 +15,8 @@ class checkage
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->age<18){
+
+        if(!auth()->user()->email=="yanluis@gmail.com"){
             return redirect()->route('no-autorizado');
         }else{
             return $next($request);

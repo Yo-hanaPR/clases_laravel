@@ -1,33 +1,24 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::resources([
-    'autores'=> App\Http\Controllers\autoresController::class,
-    'tiendas'=> App\Http\Controllers\tiendasController::class,
-    'libros'=> App\Http\Controllers\librosController::class,
-    'clientes'=> App\Http\Controllers\clientesController::class
-]);
-Route::get('entrar', function(){
-    return "Autorizado";
-})->middleware('checkage');
-
-Route::get("no-autorizado", function(){
-    return "no autorizado";
-})->name("no-autorizado");
-
-Route::middleware('checkage')->group(function(){
-
-    Route::get('hola/{id?}', ['App\Http\Controllers\userController', 'index']);
-    
-    Route::get('posts/{post}', function($post){
-        return "Aqui se mostrara el post {$post}";
-    });
-    
-    //Route::resource('autores',App\Http\Controllers\autoresController::class);
-    
-    
+Route::get('/', function () {
+    return view('welcome');
 });
-Route::view('/welcome', 'welcome');
-Route::get("/suma", [App\Http\Controllers\CarrosController::class, 'suma']);
-Route::get('/unique',[App\Http\Controllers\UniqueController::class]);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified','checkage'])->name('dashboard');
+
+Route::get('no-autorizado', function(){
+    return "No autorizado";
+})->name('no-autorizado');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
