@@ -17,6 +17,15 @@ class libros extends Model
         'descripcion',
         'precio',
         'id_autor'
-        
     ];
+
+    public function autor(){
+        return $this->belongsTo(Autores::class, 'id_autor', 'id');
+        /**
+         * 
+         * 
+         *return $this->belongsTo(Autores::class, 'ID_DE_ESTA_TABLA', 'ID_DE_LA_OTRA_TABLA');
+         */
+    }
+
 }
