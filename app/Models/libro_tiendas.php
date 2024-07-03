@@ -17,7 +17,7 @@ class libro_tiendas extends Model
         'id_tienda'
         
     ];
-
+    
     public function libros(){
         return $this->hasMany(Libros::class, 'id_autor'); 
          /**
