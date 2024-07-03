@@ -18,4 +18,11 @@ class tiendas extends Model
         
     ];
 
+    public function libros(){
+        return $this->belongsToMany(libros::class,"libro_tiendas","id_tienda","id_libro"); 
+         /**
+          * 
+            * $this->hasMany(Libros::class, 'id_FORANEO_DE_LA_OTRA_TABLA', 'ID_DE_ESTA_TABLA'); 
+          */
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\autores;
+use App\Models\libros;
 
 class autoresController extends Controller
 {
@@ -12,8 +13,8 @@ class autoresController extends Controller
      */
     public function index()
     {
-        //
         
+        $mail=libros::where("nombre","like","%lUna%")->first()->autor->email;
         $autores= [
             ['name'=> 'Jose', 'apellido'=>'padrino'],
             ['name'=> 'Yohanna', 'apellido'=>'padrino'],
@@ -49,10 +50,10 @@ class autoresController extends Controller
                 'specs'=> [' color'=>'rojo', 'tamaño'=>'grande', 'camara'=>'12MP']
             ]
         ];
-
+        
 
         $condicion= true; /**Valor booleano para ver los condicionales de blade*/
-        return view("lista_autores", compact('autores','products', 'condicion') );
+        return view("lista_autores", compact('autores','products', 'condicion','mail') );
     }
 
     /**

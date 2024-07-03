@@ -9,12 +9,13 @@
     <title>Document</title>
 </head>
 <body>
-
+<h1>{{$mail}}</h1>
     <!--
     DOCUMENTACION DE BOOTSTRAP
 https://getbootstrap.com/docs/5.3/getting-started/introduction/
     -->
 <ul>
+    
 @foreach($autores as $autor)
     <li>{{$autor['name']}} {{$autor['apellido']}}</li>
 @endforeach 

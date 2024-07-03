@@ -27,5 +27,11 @@ class libros extends Model
          *return $this->belongsTo(Autores::class, 'ID_DE_ESTA_TABLA', 'ID_DE_LA_OTRA_TABLA');
          */
     }
-
+    public function tiendas(){
+        return $this->belongsToMany(tiendas::class,"libro_tiendas","id_tienda","id_libro"); 
+         /**
+          * 
+            * $this->hasMany(Libros::class, 'id_FORANEO_DE_LA_OTRA_TABLA', 'ID_DE_ESTA_TABLA'); 
+          */
+    }
 }

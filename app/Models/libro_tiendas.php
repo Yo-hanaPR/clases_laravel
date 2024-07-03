@@ -17,4 +17,14 @@ class libro_tiendas extends Model
         'id_tienda'
         
     ];
+
+    public function libros(){
+        return $this->hasMany(Libros::class, 'id_autor'); 
+         /**
+          * 
+            * $this->hasMany(Libros::class, 'id_FORANEO_DE_LA_OTRA_TABLA', 'ID_DE_ESTA_TABLA'); 
+          */
+    }
+
+
 }
