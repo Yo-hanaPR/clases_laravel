@@ -8,6 +8,7 @@ public function nombreFuncion(){}
 
 Paso de variables a la vista en el controlador
 $variable='valor';
+
 return view('nombreVista', compact('variable'));
 
 

@@ -9,39 +9,43 @@
     <title>Document</title>
 </head>
 <body>
-<h1>{{$mail}}</h1>
     <!--
     DOCUMENTACION DE BOOTSTRAP
 https://getbootstrap.com/docs/5.3/getting-started/introduction/
     -->
-<ul>
-    
+
+    <button><a href="{{route('autores.create')}}">  AÑADIR NUEVO <a></button>
+
+
+    @if(session()->has('success'))
+        <div class="alert alert-success"> {{ session()->get('success')}}</div>
+    @endif
+<table border="1">
+
+<tr>
+<th>NOMBRE</th>
+<th>APELLIDO</th>
+<th>email</th>
+<th>Teléfono</th>    
+<th>Acciones</th>    
+</tr>
 @foreach($autores as $autor)
-    <li>{{$autor['name']}} {{$autor['apellido']}}</li>
+
+<tr>
+    <td>{{$autor['nombre']}}</td>
+    <td>{{$autor['apellido']}}</td>
+    <td>{{$autor['email']}}</td>
+    <td>{{$autor['teléfono']}}</td>
+    <td>
+        <button type="button"><a href="{{route('autores.edit', ['autore' => $autor['id']])}}">EDITAR</a></button>
+        <button type="button"><a href="{{route('autores.show', ['autore' => $autor['id']])}}">VER</a></button>
+        <button type="button">ELIMINAR</button>
+    </td>
+    
+<tr>
 @endforeach 
-</ul>
 
-@if($condicion)
- <h1>ES SIETE</h1> 
-@else 
-<h1>No es siete</h1>
-@endif 
-
-<ul>
-    @foreach($products as $product)
-        <li>
-            {{$product['nombre']}}
-        </li>
-        <li>{{$product['precio']}}
-
-        </li>
-        <ul>
-            @foreach($product['specs'] as $spec)
-                <li> {{$spec}}</li>
-            @endforeach
-        </ul>
-    @endforeach
-</ul>
+</table>
 
 
     

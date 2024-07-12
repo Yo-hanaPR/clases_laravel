@@ -16,7 +16,7 @@ class autores extends Model
         'nombre',
         'apellido',
         'email',
-        'telefono'
+        'teléfono'
     ];
 
     /***

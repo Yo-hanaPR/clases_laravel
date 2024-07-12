@@ -14,12 +14,9 @@ class autoresController extends Controller
     public function index()
     {
         
-        $mail=libros::where("nombre","like","%lUna%")->first()->autor->email;
-        $autores= [
-            ['name'=> 'Jose', 'apellido'=>'padrino'],
-            ['name'=> 'Yohanna', 'apellido'=>'padrino'],
-            ['name'=> 'Yanluis', 'apellido'=>'laya']
-        ];
+        //$mail=libros::where("nombre","like","%lUna%")->first()->autor->email;
+        $autores= autores::all();
+        
 
         $products= [
             [
@@ -53,7 +50,7 @@ class autoresController extends Controller
         
 
         $condicion= true; /**Valor booleano para ver los condicionales de blade*/
-        return view("lista_autores", compact('autores','products', 'condicion','mail') );
+        return view("lista_autores", compact('autores','products', 'condicion') );
     }
 
     /**
@@ -61,7 +58,7 @@ class autoresController extends Controller
      */
     public function create()
     {
-        //
+        return view('crear_nuevo_autor');
     }
 
     /**
@@ -70,6 +67,15 @@ class autoresController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
+        Autores::create([
+            'nombre'=> $request['nombre'],
+            'apellido'=> $request['apellido'],
+            'email'=>$request['email'],
+            'teléfono'=>$request['teléfono'],
+        ]);
+
+        return redirect()->route('autores.index')->with('success','El autor se guardó con éxito');
     }
 
     /**
@@ -78,6 +84,9 @@ class autoresController extends Controller
     public function show(string $id)
     {
         //
+        //$autor= autores::where('id',$id)->first();
+        $autor= Autores::find($id)->first();
+        return view('detalle_autor', compact('autor'));
     }
 
     /**
@@ -86,6 +95,8 @@ class autoresController extends Controller
     public function edit(string $id)
     {
         //
+        $autor= Autores::find($id)->first();
+        return view('editar_autor', compact('autor'));
     }
 
     /**

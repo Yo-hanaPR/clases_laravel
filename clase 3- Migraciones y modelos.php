@@ -5,7 +5,7 @@ Crear una migracion: php artisan make:migration create_nombretabla_table
 crear campos de una tabla: $table->string('nombre');
 
 Modelos:
-Crear modelo: php artisan make:model NombreModelo.php 
+Crear modelo: php artisan make:model NombreModelo 
 
 Propiedades por defecto del modelo: 
 

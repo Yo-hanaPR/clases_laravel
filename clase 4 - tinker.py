@@ -6,7 +6,7 @@ Retornar todos los registros de la tabla: NombreModelo::all()
 
 Retornar la PRIMERA INSTANCIA del modelo que cumpla cierta condicion: NombreModelo::where('id',x)->first()
 
-Retornar la COLECCION de instancias del modelo que cumpla ciertas condiciones: NombreModelo::where('status','active')->get()
+Retornar la COLECCION de instancias del modelo que cumpla ciertas condiciones: NombreModelo::all() / NombreModelo::where('status','active')->get()
 
 Acceder a una relacion de un modelo: NombreModelo::first()->propiedadDinamicaModelo.
 
