@@ -1,0 +1,19 @@
+// rutas. https://laravel.com/docs/11.x/routing
+
+Escribir una ruta: Route::verboHttp('URI', [App\Http\Controllers\NombreControlador::class, 'Función'])
+
+darle un nombre: ->name('nombreRuta');
+
+asignarle un middleware: ->middleware('auth')
+
+Grupo de rutas: 
+
+Route::middleware(["checkmath"])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Ruta tipo resource: Route::resource('prueba' , App\Http\Controllers\PostController::class);
+
+Ruta que lleva a una vista: Route::view('/welcome', 'welcome');
