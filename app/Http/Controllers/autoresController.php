@@ -11,6 +11,8 @@ class autoresController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    
     public function index()
     {
         
@@ -105,6 +107,10 @@ class autoresController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        //dd($request);
+        $autor= Autores::find($id)->first();
+        $autor->update($request->all());
+        return redirect()->route('autores.index')->with('updated','El autor se actualizó con éxito');
     }
 
     /**
@@ -113,5 +119,8 @@ class autoresController extends Controller
     public function destroy(string $id)
     {
         //
+        
+        Autores::find($id)->delete();
+        return redirect()->route('autores.index')->with('eliminado','El autor se eliminó con éxito');
     }
 }

@@ -20,6 +20,15 @@ https://getbootstrap.com/docs/5.3/getting-started/introduction/
     @if(session()->has('success'))
         <div class="alert alert-success"> {{ session()->get('success')}}</div>
     @endif
+
+    @if(session()->has('updated'))
+        <div class="alert alert-danger"> {{ session()->get('updated')}}</div>
+    @endif
+
+    @if(session()->has('eliminado'))
+        <div class="alert alert-warning"> {{ session()->get('eliminado')}}</div>
+    @endif
+
 <table border="1">
 
 <tr>
@@ -39,7 +48,13 @@ https://getbootstrap.com/docs/5.3/getting-started/introduction/
     <td>
         <button type="button"><a href="{{route('autores.edit', ['autore' => $autor['id']])}}">EDITAR</a></button>
         <button type="button"><a href="{{route('autores.show', ['autore' => $autor['id']])}}">VER</a></button>
-        <button type="button">ELIMINAR</button>
+        
+        <form action="{{route('autores.update',['autore'=>$autor['id']])}}" method="post">
+            @method('DELETE')
+            @csrf
+            
+            <button type="submit">ELIMINAR</button>
+        </form>
     </td>
     
 <tr>
