@@ -22,7 +22,7 @@ class tiendasController extends Controller
      */
     public function create()
     {
-        return view('crear_nueva_tienda');
+        return view('crear_nueva_tienda'); 
     }
 
     /**
@@ -46,6 +46,8 @@ class tiendasController extends Controller
     public function show(string $id)
     {
         //
+        $tienda= Tiendas::find($id)->first();
+        return view('detalle_tienda', compact('tienda'));
     }
 
     /**

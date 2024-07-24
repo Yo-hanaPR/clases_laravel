@@ -96,7 +96,7 @@ class autoresController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // layouts.app
         $autor= Autores::find($id)->first();
         return view('editar_autor', compact('autor'));
     }

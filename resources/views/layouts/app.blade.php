@@ -18,6 +18,19 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
+
+            <x-alert title="PRUEBA" type="danger">
+                PROBANDO EL SLOT
+
+                <x-slot name="secundario">
+                    ESTE ES EL SLOT SECUNDARIO. Aqui puedes poner mas HTML y te llegará como una variable en la vista
+                </x-slot>
+            </x-alert>
+
+            <x-alert2 title="prueba2" type="info">
+                Podemos enviarle una informacion
+            </x-alert2>
+
             <!-- Page Heading -->
             @isset($header)
                 <header class="bg-white shadow">

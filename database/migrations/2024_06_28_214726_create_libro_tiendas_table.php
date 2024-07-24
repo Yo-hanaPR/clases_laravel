@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('id_tienda')->references('id')->on('tiendas')->onDelete('cascade');
 
             $table->unique(['id_libro','id_tienda']);
+
         });
     }
 

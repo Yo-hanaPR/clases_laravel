@@ -8,7 +8,6 @@
     Los formularios HTML hacen peticiones POST. Pero Laravel puede indicar que la petición será de tipo PUT, o DELETE 
     usando la directiva @ method('PUT') o @ method('DELETE') respectivamente.
 </small>
-
     <input type="text" name="nombre" placeholder="Introduce tu nombre" value="{{$autor['nombre']}}">
     
     <input type="text" name="apellido" placeholder="Introduce tu apellido" value="{{$autor['apellido']}}">
