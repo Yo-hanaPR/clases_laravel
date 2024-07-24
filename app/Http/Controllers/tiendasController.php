@@ -22,7 +22,7 @@ class tiendasController extends Controller
      */
     public function create()
     {
-        //
+        return view('crear_nueva_tienda');
     }
 
     /**
@@ -30,7 +30,14 @@ class tiendasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+               //dd($request);
+               Tiendas::create([
+                'nombre'=> $request['nombre'],
+                'rif'=> $request['rif'],
+                'direccion'=>$request['direccion'],
+                ]);
+    
+            return redirect()->route('tiendas.index')->with('success','La tienda creó con éxito');
     }
 
     /**
@@ -46,7 +53,11 @@ class tiendasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //dd($tienda);
+       
+        $tienda= Tiendas::where('id',$id)->first();
+        
+        return view('editar_tienda', compact('tienda'));
     }
 
     /**
@@ -54,7 +65,11 @@ class tiendasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //dd($request);tienda
+        
+        $tienda= Tiendas::where('id',$id)->first();
+        $tienda->update($request->all());
+        return redirect()->route('tiendas.index')->with('success','La tienda se actualizó con éxito');
     }
 
     /**
@@ -63,5 +78,7 @@ class tiendasController extends Controller
     public function destroy(string $id)
     {
         //
+        Tiendas::where('id',$id)->delete();
+        return redirect()->route('tiendas.index')->with('eliminado','La tienda se eliminó con éxito');
     }
 }
