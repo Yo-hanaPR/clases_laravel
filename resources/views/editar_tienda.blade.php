@@ -18,5 +18,8 @@
             ENVIAR
         </button>
     </form>
+    
+    <x-calendar>  Calendario maya
+    </x-calendar> 
 
    

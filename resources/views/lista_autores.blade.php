@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,6 +61,8 @@ https://getbootstrap.com/docs/5.3/getting-started/introduction/
 
 </table>
 
+<x-calendar>  Calendario maya
+</x-calendar> 
 
     
 </body>
